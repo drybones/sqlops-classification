@@ -1,0 +1,80 @@
+{
+    "name": "classification",
+    "displayName": "SQL Data Classification",
+    "description": "Simple reports on the labelled classified data in each database.",
+    "version": "0.1.0",
+    "publisher": "drybones",
+    "engines": {
+        "vscode": "^1.23.0",
+        "sqlops": "*"
+    },
+    "categories": [
+        "Other"
+    ],
+    "contributes": {
+        "dashboard.insights": [
+            {
+                "id": "classification.info-types",
+                "contrib": {
+                    "queryFile": "./sql/info-type-count.sql",
+                    "type": {
+                        "horizontalBar": {
+                            "dataDirection": "vertical",
+                            "dataType": "number",
+                            "legendPosition": "none",
+                            "labelFirstColumn": false,
+                            "columnsAsLabels": false
+                        }
+                    }
+                }
+            },
+            {
+                "id": "classification.sensitivity",
+                "contrib": {
+                    "queryFile": "./sql/sensitivity-count.sql",
+                    "type": {
+                        "horizontalBar": {
+                            "dataDirection": "vertical",
+                            "dataType": "number",
+                            "legendPosition": "none",
+                            "labelFirstColumn": false,
+                            "columnsAsLabels": false
+                        }
+                    }
+                }
+            }
+        ]
+        ,
+        "dashboard.tabs": [
+            {
+                "id": "classification.tab",
+                "title": "Classification",
+                "description": "Simple reports on the labelled classified data in each database",
+                "container": {
+                    "widgets-container": [
+                        {
+                            "name": "Information types",
+                            "gridItemConfig": {
+                                "sizex": 2,
+                                "sizey": 1
+                            },
+                            "widget": {
+                                "classification.info-types": {}
+                            }
+                        },
+                        {
+                            "name": "Sensitivity",
+                            "gridItemConfig": {
+                                "sizex": 2,
+                                "sizey": 1
+                            },
+                            "widget": {
+                                "classification.sensitivity": {}
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}
