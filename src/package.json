@@ -4,6 +4,13 @@
     "description": "Simple reports on the labelled classified data in each database.",
     "version": "0.1.0",
     "publisher": "drybones",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/drybones/sqlops-classification"
+    },
+    "bugs": {
+        "url": "https://github.com/drybones/sqlops-classification/issues"
+    },
     "engines": {
         "vscode": "^1.23.0",
         "sqlops": "*"
